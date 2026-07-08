@@ -1,12 +1,10 @@
 //! CPU, GPU and RAM Collectors main module.
-pub mod constants;
+mod constants;
 pub use constants::DEFAULT_POLL_INTERVAL;
 
-pub mod cpu;
-pub use cpu::CPUCollector;
+mod _trait;
+pub use _trait::Collector;
 
-// pub mod gpu;
-// pub use gpu::gpuCollector;
-
-pub mod ram;
-pub use ram::RAMCollector;
+mod cpu;
+// pub use cpu::{CPUTelemetry, CPUCollector};
+pub use cpu::{CPUCollector};

@@ -1,5 +1,3 @@
-//! RAM collection logic.
-
 use sysinfo::System;
 
 /// Collects RAM metrics.
