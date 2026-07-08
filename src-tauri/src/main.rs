@@ -1,6 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use std::thread::sleep;
 
 use sysinfo::{System};
 
@@ -22,7 +23,7 @@ fn main() {
     let telemetry = cpu_collector.collect(&system);
     println!("{:?}", telemetry);
 
-    std::thread::sleep(DEFAULT_POLL_INTERVAL);
+    sleep(DEFAULT_POLL_INTERVAL);
   }
 
   // aeon_lib::run()
