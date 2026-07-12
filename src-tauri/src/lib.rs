@@ -3,11 +3,13 @@ use tauri::Manager;
 mod domain;
 mod infrastructure;
 mod appplication;
+mod presentation;
 
 use appplication::{
   state::AppState,
   workers::TelemetryCollectorWorker,
 };
+use presentation::commands::get_telemetry_store;
 
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -20,6 +22,7 @@ pub fn run() {
       TelemetryCollectorWorker::new(telemetry_store, None).spawn();
       Ok(())
     })
+    .invoke_handler(tauri::generate_handler![get_telemetry_store])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
