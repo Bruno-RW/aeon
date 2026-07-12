@@ -24,10 +24,10 @@ pub fn run() {
       telemetry_store: Arc::new(RwLock::new( TelemetryStore::default() )),
     })
     .setup(|app| {
-      // ? Clones the handle to same shared store, not the whole store
+      // ? Clones shared store handle, not whole store
       let telemetry_store = app.state::<AppState>().telemetry_store.clone();
 
-      // ? Moves telemetry_store into the thread to avoid ownership issues
+      // ? Moves telemetry_store into thread to avoid ownership issues
       thread::spawn(move || {
         let mut system = System::new_all();
         let cpu_collector = CPUCollector;
