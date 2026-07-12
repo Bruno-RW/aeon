@@ -6,5 +6,7 @@ mod _trait;
 pub use _trait::Collector;
 
 mod cpu;
-// pub use cpu::{CPUTelemetry, CPUCollector};
-pub use cpu::{CPUCollector};
+pub use cpu::{CPUTelemetry, CPUCollector};
+
+mod ram;
+pub use ram::{RAMTelemetry, RAMCollector};

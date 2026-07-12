@@ -1,7 +1,12 @@
 use sysinfo::System;
 
+use super::Collector;
+
+mod telemetry;
+pub use telemetry::RAMTelemetry;
+
 /// Collects RAM metrics.
-pub struct RAMCollector {}
+pub struct RAMCollector;
 
 impl RAMCollector {
   /// Returns the RAM usage as a percentage.
@@ -11,5 +16,18 @@ impl RAMCollector {
 
     let usage: f64 = (used_memory / total_memory * 100.0).round();
     return usage as u8;
+  }
+}
+
+impl Collector for RAMCollector {
+  type Telemetry = RAMTelemetry;
+
+  fn collect(&self, system: &System) -> Self::Telemetry {
+    let usage = Self::get_usage(system);
+
+    return Self::Telemetry {
+      usage,
+      temperature: None,
+    }
   }
 }
