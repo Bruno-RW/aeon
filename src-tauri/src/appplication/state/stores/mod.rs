@@ -1,4 +1,4 @@
-use crate::collectors::{CPUTelemetry, RAMTelemetry};
+use crate::domain::collectors::{CPUTelemetry, RAMTelemetry};
 
 #[derive(Default, Debug, Clone, serde::Serialize)]
 /// All telemetry data.

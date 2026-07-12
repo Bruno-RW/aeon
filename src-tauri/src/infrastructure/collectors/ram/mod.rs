@@ -1,9 +1,6 @@
 use sysinfo::System;
 
-use super::Collector;
-
-mod telemetry;
-pub use telemetry::RAMTelemetry;
+use crate::domain::collectors::{Collector, RAMTelemetry};
 
 /// Collects RAM metrics.
 pub struct RAMCollector;

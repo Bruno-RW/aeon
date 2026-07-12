@@ -1,9 +1,6 @@
 use sysinfo::System;
 
-use super::Collector;
-
-mod telemetry;
-pub use telemetry::CPUTelemetry;
+use crate::domain::collectors::{Collector, CPUTelemetry};
 
 /// Collects CPU metrics.
 pub struct CPUCollector;
