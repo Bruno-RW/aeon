@@ -1,0 +1,54 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+  "languages": {
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "npm",
+          "arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": "on"
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "npm",
+          "arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": "on"
+    },
+    "TSX": {
+      "formatter": {
+        "external": {
+          "command": "npm",
+          "arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+        }
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": "on"
+    },
+  }
+}
+
+
+// "TypeScript": {
+//   "formatter": "prettier",
+//   "code_actions_on_format": {
+//     "source.fixAll.eslint": true
+//   },
+//   "format_on_save": "on"
+//   }
+// },

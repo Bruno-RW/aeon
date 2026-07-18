@@ -1,12 +1,23 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+/// <reference types="node" />
+import { fileURLToPath, URL } from "node:url";
 
-// @ts-expect-error process is a nodejs global
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vite.dev/config/
 export default defineConfig(async () => ({
   plugins: [react()],
+  resolve: {
+    alias: {
+      assets: fileURLToPath(new URL("./src/assets", import.meta.url)),
+      core: fileURLToPath(new URL("./src/core", import.meta.url)),
+      features: fileURLToPath(new URL("./src/features", import.meta.url)),
+      pages: fileURLToPath(new URL("./src/pages", import.meta.url)),
+      shared: fileURLToPath(new URL("./src/shared", import.meta.url)),
+    },
+  },
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //
